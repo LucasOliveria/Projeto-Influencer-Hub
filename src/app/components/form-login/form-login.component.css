@@ -7,7 +7,7 @@ form {
   padding: 20px 15px;
   border-radius: 15px;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #f7fafcfa;
+  background-color: #f7fafcf8;
   position: relative;
   z-index: 1;
 }
@@ -28,6 +28,12 @@ form input {
 
 input:last-of-type {
   margin: 10px 0 30px 0;
+}
+
+input::placeholder {
+  color: #666b75;
+  font-weight: 900;
+  font-family: 'Roboto';
 }
 
 .login-button {
