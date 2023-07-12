@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import api from 'src/service/api';
+import { setItem } from 'src/utils/storage';
 
 @Component({
   selector: 'app-form-login',
@@ -11,7 +13,13 @@ export class FormLoginComponent {
     password: ""
   }
 
-  handleFormLogin(): void {
+  show: boolean = false;
+
+  showPassword(): void {
+    this.show = !this.show;
+  }
+
+  async handleFormLogin(): Promise<void> {
     if (this.formLogin.email === "") {
       return console.log("E-mail obrigatório");
     }
@@ -20,12 +28,20 @@ export class FormLoginComponent {
       return console.log("Senha obrigatória");
     }
 
-    console.log(this.formLogin);
-  }
+    try {
+      const response = await api.post("/login", {
+        email: this.formLogin.email,
+        password: this.formLogin.password
+      });
 
-  show: boolean = false;
+      setItem("token", response.data.token);
 
-  showPassword(): void {
-    this.show = !this.show;
+      this.formLogin.email = "";
+      this.formLogin.password = "";
+
+      console.log(`Bem-vindo(a) ${response.data.usuario.name}`);
+    } catch (error: any) {
+      console.log(error.response.data);
+    }
   }
 }

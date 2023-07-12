@@ -1,4 +1,4 @@
-<form>
+<form (submit)="handleFormLogin()">
   <h2>Login</h2>
 
   <input [(ngModel)]="formLogin.email" type="email" name="email" placeholder="E-mail">
@@ -11,7 +11,7 @@
     <img *ngIf="show" src="../../../assets/open-eye.svg" alt="open-eye" (click)="showPassword()">
   </div>
 
-  <button (click)="handleFormLogin()" class="login-button">
+  <button class="login-button">
     ENTRAR
   </button>
   <p>

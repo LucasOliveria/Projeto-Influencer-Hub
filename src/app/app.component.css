@@ -5,10 +5,10 @@ main {
   flex-direction: column;
   max-width: 100vw;
   min-height: 100vh;
-  background-image: url("../assets/logo-2.svg");
+  background-image: url("../assets/logo.svg");
   background-repeat: no-repeat;
   background-position: right -350px top 40%;
-  background-size: 110%;
+  background-size: cover;
   background-color: #EDF0FC;
   position: relative;
 }
