@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import api from 'src/service/api';
 import { setItem } from 'src/utils/storage';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-form-login',
@@ -8,6 +9,8 @@ import { setItem } from 'src/utils/storage';
   styleUrls: ['./form-login.component.css']
 })
 export class FormLoginComponent {
+  constructor(private router: Router) { }
+
   formLogin: { email: string, password: string } = {
     email: "",
     password: ""
@@ -40,8 +43,14 @@ export class FormLoginComponent {
       this.formLogin.password = "";
 
       console.log(`Bem-vindo(a) ${response.data.usuario.name}`);
+
+      this.router.navigate(["/home"]);
     } catch (error: any) {
       console.log(error.response.data);
     }
+  }
+
+  handleGoToSignUp(): void {
+    this.router.navigate(["/signup"])
   }
 }
