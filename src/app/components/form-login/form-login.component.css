@@ -6,7 +6,7 @@ form {
   height: 325px;
   padding: 20px 15px;
   border-radius: 15px;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 10px 10px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #f7fafcf8;
   position: relative;
   z-index: 1;
@@ -26,8 +26,19 @@ form input {
   background-color: #EDF0FC;
 }
 
-input:last-of-type {
+.container-password {
+  width: 100%;
   margin: 10px 0 30px 0;
+  position: relative;
+}
+
+img[alt="close-eye"],
+img[alt="open-eye"] {
+  width: 25px;
+  position: absolute;
+  right: 10px;
+  top: 12.5px;
+  cursor: pointer;
 }
 
 input::placeholder {
@@ -38,14 +49,18 @@ input::placeholder {
 
 .login-button {
   all: unset;
-  height: 49px;
+  height: 48px;
   width: 120px;
   margin-bottom: 10px;
   border-radius: 25px;
   text-align: center;
   color: #F7FAFC;
-  background-color: #1A4DD8;
+  background-color: #2861fd;
   cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #1A4DD8;
 }
 
 form p {
@@ -54,6 +69,6 @@ form p {
 
 span {
   font-weight: 900;
-  color: #1A4DD8;
+  color: #2861fd;
   cursor: pointer;
 }

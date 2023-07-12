@@ -3,9 +3,17 @@
 
   <input [(ngModel)]="formLogin.email" type="email" name="email" placeholder="E-mail">
 
-  <input [(ngModel)]="formLogin.password" type="password" name="password" placeholder="Senha">
+  <div class="container-password">
+    <input [(ngModel)]="formLogin.password" type="{{!show ? 'password' : 'text'}}" name="password" placeholder="Senha">
 
-  <button class="login-button">ENTRAR</button>
+    <img *ngIf="!show" src="../../../assets/close-eye.svg" alt="close-eye" (click)="showPassword()">
+
+    <img *ngIf="show" src="../../../assets/open-eye.svg" alt="open-eye" (click)="showPassword()">
+  </div>
+
+  <button (click)="handleFormLogin()" class="login-button">
+    ENTRAR
+  </button>
   <p>
     Cadastrar novo usuário? <span>Clique aqui!</span>
   </p>
