@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import api from 'src/service/api';
 import { setItem } from 'src/utils/storage';
 import { Router } from "@angular/router";
