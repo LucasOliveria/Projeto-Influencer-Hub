@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
+import { AddInfluencerComponent } from './pages/add-influencer/add-influencer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './pages/login/login.component';
     FormSignUpComponent,
     HomeComponent,
     EditInfluencerComponent,
-    LoginComponent
+    LoginComponent,
+    AddInfluencerComponent
   ],
   imports: [
     BrowserModule,
