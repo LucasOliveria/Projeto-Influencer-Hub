@@ -11,6 +11,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { AddInfluencerComponent } from './pages/add-influencer/add-influencer.component';
+import { TableInfluencersComponent } from './components/table-influencers/table-influencers.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AddInfluencerComponent } from './pages/add-influencer/add-influencer.co
     HomeComponent,
     EditInfluencerComponent,
     LoginComponent,
-    AddInfluencerComponent
+    AddInfluencerComponent,
+    TableInfluencersComponent
   ],
   imports: [
     BrowserModule,

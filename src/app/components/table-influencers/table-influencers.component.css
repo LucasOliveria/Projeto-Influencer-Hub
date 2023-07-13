@@ -1,0 +1,47 @@
+table {
+  width: 980px;
+  border-collapse: collapse;
+}
+
+thead,
+tbody {
+  text-align: center;
+}
+
+thead {
+  height: 48px;
+  font-family: 'Rubik', sans-serif;
+  color: #EDF0FC;
+  background-color: #168CFD;
+}
+
+thead tr th:first-child {
+  padding-left: 15px;
+}
+
+thead tr th:last-child {
+  padding-right: 15px;
+}
+
+tbody {
+  background-color: #e5e9fa;
+  font-size: 1.4rem;
+}
+
+tbody tr {
+  height: 50px;
+}
+
+tbody tr td:first-child {
+  padding-left: 15px;
+}
+
+tbody tr td:last-child {
+  padding-right: 15px;
+}
+
+img[alt="trash"],
+img[alt="pencil"] {
+  width: 25px;
+  cursor: pointer;
+}
