@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import api from 'src/service/api';
 import { setItem } from 'src/utils/storage';
 import { Router } from "@angular/router";
@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
-  styleUrls: ['./form-login.component.css']
+  styleUrls: ['./form-login.component.css', '../../shared/forms.css']
 })
 export class FormLoginComponent {
   constructor(private router: Router) { }
@@ -15,8 +15,8 @@ export class FormLoginComponent {
     email: "",
     password: ""
   }
-
   show: boolean = false;
+  exitForm: boolean = false;
 
   showPassword(): void {
     this.show = !this.show;
@@ -39,18 +39,23 @@ export class FormLoginComponent {
 
       setItem("token", response.data.token);
 
-      this.formLogin.email = "";
-      this.formLogin.password = "";
-
       console.log(`Bem-vindo(a) ${response.data.usuario.name}`);
 
-      this.router.navigate(["/home"]);
+      this.exitForm = true;
+
+      setTimeout(() => {
+        this.router.navigate(["/home"]);
+      }, 570);
     } catch (error: any) {
       console.log(error.response.data);
     }
   }
 
   handleGoToSignUp(): void {
-    this.router.navigate(["/signup"])
+    this.exitForm = true;
+
+    setTimeout(() => {
+      this.router.navigate(["/signup"]);
+    }, 570);
   }
 }

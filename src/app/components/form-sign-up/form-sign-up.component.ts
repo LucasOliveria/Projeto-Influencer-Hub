@@ -1,12 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import api from 'src/service/api';
-import { setItem } from 'src/utils/storage';
 import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-form-sign-up',
   templateUrl: './form-sign-up.component.html',
-  styleUrls: ['./form-sign-up.component.css']
+  styleUrls: ['./form-sign-up.component.css', '../../shared/forms.css']
 })
 export class FormSignUpComponent {
   constructor(private router: Router) { }
@@ -22,42 +21,51 @@ export class FormSignUpComponent {
       password: "",
       authorized: true
     }
-
   show: boolean = false;
+  exitForm: boolean = false
 
   showPassword(): void {
     this.show = !this.show;
   }
 
   async handleFormSignUp(): Promise<void> {
-    // if (this.formLogin.email === "") {
-    //   return console.log("E-mail obrigatório");
-    // }
+    if (this.formSignUp.name === "") {
+      return console.log("O campo Nome é obrigatório");
+    }
 
-    // if (this.formLogin.password === "") {
-    //   return console.log("Senha obrigatória");
-    // }
+    if (this.formSignUp.email === "") {
+      return console.log("O campo E-mail é obrigatório");
+    }
 
-    // try {
-    //   const response = await api.post("/login", {
-    //     email: this.formLogin.email,
-    //     password: this.formLogin.password
-    //   });
+    if (this.formSignUp.password === "") {
+      return console.log("O campo Senha é obrigatório");
+    }
 
-    //   setItem("token", response.data.token);
+    try {
+      const response = await api.post("/user", {
+        name: this.formSignUp.name,
+        email: this.formSignUp.email,
+        password: this.formSignUp.password,
+        authorized: this.formSignUp.authorized
+      });
 
-    //   this.formLogin.email = "";
-    //   this.formLogin.password = "";
+      console.log(response.data);
 
-    //   console.log(`Bem-vindo(a) ${response.data.usuario.name}`);
+      this.exitForm = true;
 
-    //   this.router.navigate(["/home"]);
-    // } catch (error: any) {
-    //   console.log(error.response.data);
-    // }
+      setTimeout(() => {
+        this.router.navigate(["/"]);
+      }, 570);
+    } catch (error: any) {
+      console.log(error.response.data);
+    }
   }
 
   handleGoToLogin(): void {
-    this.router.navigate(["/"])
+    this.exitForm = true;
+
+    setTimeout(() => {
+      this.router.navigate(["/"]);
+    }, 570);
   }
 }
