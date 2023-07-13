@@ -29,15 +29,28 @@ main {
   align-items: center;
 }
 
-.lateral-bar h2 {
-  font-family: 'Roboto';
+.line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 90%;
+  margin: 40px 0;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #EDF0FC;
+
 }
 
-.line {
-  width: 80%;
-  margin: 40px 0;
-  border-bottom: 2px solid #EDF0FC;
+img[alt="user-icon"] {
+  width: 42px;
 }
+
+.lateral-bar h2 {
+  font-family: 'Roboto';
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .menu,
 .container-logout {

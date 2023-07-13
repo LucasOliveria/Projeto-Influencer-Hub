@@ -13,16 +13,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Pato</td>
-      <td>pato@pato.com</td>
-      <td>30</td>
-      <td>400 mil</td>
-      <td>@patop</td>
-      <td>youtube</td>
-      <td>games</td>
+    <tr *ngFor="let influencer of influencers">
+      <td>{{influencer?.name}}</td>
+      <td>{{influencer?.email}}</td>
+      <td>{{influencer?.age}}</td>
+      <td>{{influencer?.subscribers}}</td>
+      <td>{{influencer?.at_channel}}</td>
+      <td>{{influencer?.platform}}</td>
+      <td>{{influencer?.category}}</td>
       <td>
-        <img src="../../../assets/pencil.png" alt="pencil">
+        <img src="../../../assets/pencil.png" alt="pencil" (click)="handleGoToEditInfluencer(influencer?.id)">
       </td>
       <td>
         <img src="../../../assets/trash.png" alt="trash">

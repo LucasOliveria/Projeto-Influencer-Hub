@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import api from 'src/service/api';
-import { getItem } from 'src/utils/storage';
+import { getItem, removeItem } from 'src/utils/storage';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +11,13 @@ import { getItem } from 'src/utils/storage';
 export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
 
+  token: string | null = "";
   user?: {
     id: number
     name: string
     email: string
     authorized: boolean
   }
-  token: string | null = "";
 
   ngOnInit(): void {
     this.token = getItem("token");
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(["/"]);
     }
 
-    // this.getUser();
+    this.getUser();
   }
 
   async getUser(): Promise<void> {
@@ -41,6 +41,12 @@ export class HomeComponent implements OnInit {
     } catch (error: any) {
       console.log(error.response.data);
     }
+  }
+
+  async handleLogout() {
+    removeItem("token");
+
+    this.router.navigate(["/"]);
   }
 }
 
