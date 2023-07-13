@@ -1,0 +1,96 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 420px;
+    /* height: 325px; */
+    padding: 20px 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 10px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #f7fafcf8;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    color: #2860FC;
+    margin-bottom: 40px;
+}
+
+form input {
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #EDF0FC;
+}
+
+input[type="email"] {
+    margin-top: 10px;
+}
+
+.container-password {
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+}
+
+img[alt="close-eye"],
+img[alt="open-eye"] {
+    width: 25px;
+    position: absolute;
+    right: 10px;
+    top: 12.5px;
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: #666b75;
+    font-weight: 900;
+    font-family: 'Roboto';
+}
+
+.container-radio {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.container-radio div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+form input[type="radio"] {
+    width: 15px;
+    height: 15px;
+}
+
+.login-button {
+    all: unset;
+    height: 48px;
+    width: 120px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    text-align: center;
+    color: #F7FAFC;
+    background-color: #2861fd;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #1A4DD8;
+}
+
+form p {
+    font-size: 1.3rem;
+}
+
+span {
+    font-weight: 900;
+    color: #2861fd;
+    cursor: pointer;
+}

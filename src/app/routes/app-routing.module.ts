@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: "edit-influencer/:id", component: EditInfluencerComponent },
 ]
 
-
 @NgModule({
   declarations: [],
   imports: [

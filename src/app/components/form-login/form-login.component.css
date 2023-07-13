@@ -3,7 +3,7 @@ form {
   flex-direction: column;
   align-items: center;
   width: 420px;
-  height: 325px;
+  /* height: 325px; */
   padding: 20px 15px;
   border-radius: 15px;
   box-shadow: 0 10px 10px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);

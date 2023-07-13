@@ -1,1 +1,37 @@
-<p>form-sign-up works!</p>
+<form (submit)="handleFormSignUp()">
+  <h2>Cadastrar Usuário</h2>
+
+  <input [(ngModel)]="formSignUp.name" type="text" name="text" placeholder="Nome" autocomplete="on">
+
+  <input [(ngModel)]="formSignUp.email" type="email" name="email" placeholder="E-mail" autocomplete="on">
+
+  <div class="container-password">
+    <input [(ngModel)]="formSignUp.password" type="{{!show ? 'password' : 'text'}}" name="password" placeholder="Senha"
+      autocomplete="on">
+
+    <img *ngIf="!show" src="../../../assets/close-eye.svg" alt="close-eye" (click)="showPassword()">
+
+    <img *ngIf="show" src="../../../assets/open-eye.svg" alt="open-eye" (click)="showPassword()">
+  </div>
+
+  <div class="container-radio">
+    <div>
+      <input checked [(ngModel)]="formSignUp.authorized" type="radio" name="authorized" [value]="true"
+        id="authorized-true">
+      <label for="authorized-true">Colaborador</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="formSignUp.authorized" type="radio" name="authorized" [value]="false" id="authorized-false">
+      <label for="authorized-false">Espectador</label>
+    </div>
+  </div>
+
+  <button class="login-button">
+    CADASTRAR
+  </button>
+
+  <p>
+    Deseja logar agora? <span (click)="handleGoToLogin()">Clique aqui!</span>
+  </p>
+</form>
