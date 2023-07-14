@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from "ngx-toastr";
 import { User } from 'src/interfaces/interfaces';
 import api from 'src/service/api';
 import { getItem, removeItem } from 'src/utils/storage';
@@ -10,7 +11,7 @@ import { getItem, removeItem } from 'src/utils/storage';
   styleUrls: ['./add-influencer.component.css']
 })
 export class AddInfluencerComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastr: ToastrService) { }
 
   token: string | null = "";
 
@@ -39,7 +40,7 @@ export class AddInfluencerComponent implements OnInit {
 
       this.user = response.data;
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
     }
   }
 

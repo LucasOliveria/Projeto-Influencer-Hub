@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from "ngx-toastr";
 import { Categories, Influencer } from 'src/interfaces/interfaces';
 import api from 'src/service/api';
 import { getItem } from 'src/utils/storage';
@@ -10,7 +11,7 @@ import { getItem } from 'src/utils/storage';
   styleUrls: ['./form-edit-influencer.component.css', '../../shared/forms.css']
 })
 export class FormEditInfluencerComponent implements OnInit {
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private toastr: ToastrService) { }
 
   token: string | null = "";
 
@@ -21,6 +22,8 @@ export class FormEditInfluencerComponent implements OnInit {
   influencer!: Influencer;
 
   selectedCategory: string = "";
+
+  waiting: any;
 
   ngOnInit(): void {
     this.token = getItem("token");
@@ -39,7 +42,7 @@ export class FormEditInfluencerComponent implements OnInit {
 
       this.categories = response.data;
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
     }
   }
 
@@ -56,7 +59,7 @@ export class FormEditInfluencerComponent implements OnInit {
       this.influencer = response.data;
       this.selectedCategory = response.data.category;
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
     }
   }
 
@@ -66,6 +69,8 @@ export class FormEditInfluencerComponent implements OnInit {
     const id_category = this.categories?.find((category) => category.category === this.selectedCategory);
 
     const { id, id_user, category, ...influncerProps } = this.influencer;
+
+    this.waiting = this.toastr.info("Processando...", "Por favor aguarde", { timeOut: 0 });
 
     try {
       await api.put(`/influencers/${idInfluencer}`, {
@@ -78,11 +83,15 @@ export class FormEditInfluencerComponent implements OnInit {
           }
         });
 
-      console.log("Influencer atualizado com sucesso!");
+      this.toastr.success("Influencer atualizado com sucesso!");
+
+      this.toastr.clear(this.waiting.toastId);
 
       this.router.navigate(["/home"]);
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
+
+      this.toastr.clear(this.waiting.toastId);
     }
   }
 }

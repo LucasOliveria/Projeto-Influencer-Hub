@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Categories, Influencer } from 'src/interfaces/interfaces';
+import { ToastrService } from "ngx-toastr";
+import { Categories } from 'src/interfaces/interfaces';
 import api from 'src/service/api';
 import { getItem } from 'src/utils/storage';
-import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-form-add-influencer',
