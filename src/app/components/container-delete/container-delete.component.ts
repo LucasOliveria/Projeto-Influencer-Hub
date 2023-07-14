@@ -19,11 +19,6 @@ export class ContainerDeleteComponent implements OnInit {
   ngOnInit(): void {
     this.token = getItem("token");
 
-    if (!this.token) {
-      this.router.navigate(["/"]);
-      return;
-    }
-
     this.getInfluencer();
   }
 
@@ -40,7 +35,6 @@ export class ContainerDeleteComponent implements OnInit {
       this.nameInfluencer = response.data;
     } catch (error: any) {
       console.log(error.response.data);
-
     }
   }
 

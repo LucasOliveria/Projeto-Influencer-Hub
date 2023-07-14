@@ -1,1 +1,26 @@
-<p>edit-influencer works!</p>
+<main>
+  <div class="content-lateral-bar">
+    <div class="lateral-bar">
+      <div class="line">
+        <img src="../../../assets/user-icon.svg" alt="user-icon">
+        <h2 title={{user?.name}}>Olá, {{user?.name}}!</h2>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li>
+            <img src="../../../assets/home-blue.svg" alt="home">
+            <p>Home</p>
+          </li>
+          <li *ngIf="user?.authorized" class="selecting">
+            <img src="../../../assets/more-blue.svg" alt="add">
+            <p>Adicionar influencer</p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container-logout selecting" (click)="handleLogout()">
+      <img src="../../../assets/logout.png" alt="logout">
+      <p>Logout</p>
+    </div>
+  </div>
+</main>
