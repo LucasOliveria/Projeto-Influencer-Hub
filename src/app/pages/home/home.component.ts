@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
 
     if (!this.token) {
       this.router.navigate(["/"]);
+      return;
     }
 
     this.getUser();
@@ -73,7 +74,6 @@ export class HomeComponent implements OnInit {
       });
 
       this.categories = response.data;
-      console.log(response.data);
     } catch (error: any) {
       console.log(error.response.data);
 

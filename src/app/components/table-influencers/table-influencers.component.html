@@ -21,10 +21,12 @@
       <td>{{influencer?.at_channel}}</td>
       <td>{{influencer?.platform}}</td>
       <td>{{influencer?.category}}</td>
+
       <td *ngIf="user?.authorized">
         <img src="../../../assets/pencil.png" alt="pencil" (click)="handleGoToEditInfluencer(influencer?.id)">
       </td>
-      <td *ngIf="user?.authorized">
+
+      <td *ngIf="user?.authorized" (click)="handleGoToDeleteInfluencer(influencer?.id)">
         <img src="../../../assets/trash.png" alt="trash">
       </td>
     </tr>

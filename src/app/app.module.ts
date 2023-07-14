@@ -12,6 +12,8 @@ import { AppRoutingModule } from './routes/app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { AddInfluencerComponent } from './pages/add-influencer/add-influencer.component';
 import { TableInfluencersComponent } from './components/table-influencers/table-influencers.component';
+import { DeleteInfluencerComponent } from './pages/delete-influencer/delete-influencer.component';
+import { ContainerDeleteComponent } from './components/container-delete/container-delete.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { TableInfluencersComponent } from './components/table-influencers/table-
     EditInfluencerComponent,
     LoginComponent,
     AddInfluencerComponent,
-    TableInfluencersComponent
+    TableInfluencersComponent,
+    DeleteInfluencerComponent,
+    ContainerDeleteComponent
   ],
   imports: [
     BrowserModule,

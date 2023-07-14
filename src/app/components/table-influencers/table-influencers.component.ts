@@ -23,7 +23,10 @@ export class TableInfluencersComponent implements OnInit {
   }
 
   async handleGoToEditInfluencer(id?: number): Promise<void> {
-    console.log(id);
+    this.router.navigate([`edit-influencer/${id}`]);
+  }
 
+  handleGoToDeleteInfluencer(id?: number) {
+    this.router.navigate([`delete-influencer/${id}`]);
   }
 }
