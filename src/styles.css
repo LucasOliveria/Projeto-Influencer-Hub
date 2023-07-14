@@ -1,4 +1,5 @@
 @import url("app/shared/animations.css");
+@import ' ngx-toastr/toastr ';
 
 html {
   font-size: 62.5%;

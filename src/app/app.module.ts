@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
@@ -17,6 +17,8 @@ import { ContainerDeleteComponent } from './components/container-delete/containe
 import { LateralBarComponent } from './components/lateral-bar/lateral-bar.component';
 import { FormEditInfluencerComponent } from './components/form-edit-influencer/form-edit-influencer.component';
 import { FormAddInfluencerComponent } from './components/form-add-influencer/form-add-influencer.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,12 @@ import { FormAddInfluencerComponent } from './components/form-add-influencer/for
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

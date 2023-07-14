@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import api from 'src/service/api';
 import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-form-sign-up',
@@ -8,7 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./form-sign-up.component.css', '../../shared/forms.css']
 })
 export class FormSignUpComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastr: ToastrService) { }
 
   formSignUp: {
     name: string
@@ -30,15 +31,18 @@ export class FormSignUpComponent {
 
   async handleFormSignUp(): Promise<void> {
     if (this.formSignUp.name === "") {
-      return console.log("O campo Nome é obrigatório");
+      this.toastr.info("O campo Nome é obrigatório");
+      return
     }
 
     if (this.formSignUp.email === "") {
-      return console.log("O campo E-mail é obrigatório");
+      this.toastr.info("O campo E-mail é obrigatório");
+      return
     }
 
     if (this.formSignUp.password === "") {
-      return console.log("O campo Senha é obrigatório");
+      this.toastr.info("O campo Senha é obrigatório");
+      return
     }
 
     try {
@@ -49,7 +53,7 @@ export class FormSignUpComponent {
         authorized: this.formSignUp.authorized
       });
 
-      console.log(response.data);
+      this.toastr.success(response.data);
 
       this.exitForm = true;
 
@@ -57,7 +61,7 @@ export class FormSignUpComponent {
         this.router.navigate(["/"]);
       }, 570);
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
     }
   }
 
