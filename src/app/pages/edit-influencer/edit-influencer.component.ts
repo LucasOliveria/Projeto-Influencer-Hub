@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/interfaces/interfaces';
 import api from 'src/service/api';
@@ -9,7 +9,7 @@ import { getItem, removeItem } from 'src/utils/storage';
   templateUrl: './edit-influencer.component.html',
   styleUrls: ['./edit-influencer.component.css']
 })
-export class EditInfluencerComponent {
+export class EditInfluencerComponent implements OnInit {
   constructor(private router: Router) { }
 
   token: string | null = "";
@@ -42,20 +42,6 @@ export class EditInfluencerComponent {
       console.log(error.response.data);
     }
   }
-
-  // async getInfluencers(): Promise<void> {
-  //   try {
-  //     const response = await api.get("/influencers", {
-  //       headers: {
-  //         Authorization: `Bearer ${this.token}`
-  //       }
-  //     });
-
-  //     this.influencers = response.data;
-  //   } catch (error: any) {
-  //     console.log(error.response.data);
-  //   }
-  // }
 
   handleLogout() {
     removeItem("token");

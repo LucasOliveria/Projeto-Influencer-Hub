@@ -63,12 +63,12 @@ export class FormEditInfluencerComponent implements OnInit {
   async handleFormEdit(): Promise<void> {
     const idInfluencer = this.route.snapshot.paramMap.get("id");
 
-    const id_category = this.categories?.find((category) => category.category === this.selectedCategory)
+    const id_category = this.categories?.find((category) => category.category === this.selectedCategory);
 
     const { id, id_user, category, ...influncerProps } = this.influencer;
 
     try {
-      const response = await api.put(`/influencers/${idInfluencer}`, {
+      await api.put(`/influencers/${idInfluencer}`, {
         ...influncerProps,
         id_category: id_category?.id
       },

@@ -1,0 +1,23 @@
+.edit-form {
+  gap: 15px;
+}
+
+.edit-form h2 {
+  margin-bottom: 25px;
+}
+
+.edit-form select {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  border: none;
+  border-radius: 15px;
+  color: #666b75;
+  font-weight: 900;
+  font-family: 'Roboto';
+  background-color: #EDF0FC;
+}
+
+.edit-form .edit-button {
+  margin: 0;
+}
