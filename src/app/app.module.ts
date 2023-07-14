@@ -14,6 +14,8 @@ import { AddInfluencerComponent } from './pages/add-influencer/add-influencer.co
 import { TableInfluencersComponent } from './components/table-influencers/table-influencers.component';
 import { DeleteInfluencerComponent } from './pages/delete-influencer/delete-influencer.component';
 import { ContainerDeleteComponent } from './components/container-delete/container-delete.component';
+import { LateralBarComponent } from './components/lateral-bar/lateral-bar.component';
+import { FormEditInfluencerComponent } from './components/form-edit-influencer/form-edit-influencer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ContainerDeleteComponent } from './components/container-delete/containe
     AddInfluencerComponent,
     TableInfluencersComponent,
     DeleteInfluencerComponent,
-    ContainerDeleteComponent
+    ContainerDeleteComponent,
+    LateralBarComponent,
+    FormEditInfluencerComponent
   ],
   imports: [
     BrowserModule,

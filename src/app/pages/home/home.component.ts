@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
 
   searchCategory: string = "";
 
+  currentPage: string = "home";
+
   ngOnInit(): void {
     this.token = getItem("token");
 
@@ -105,10 +107,5 @@ export class HomeComponent implements OnInit {
     return [];
   }
 
-  handleLogout() {
-    removeItem("token");
-
-    this.router.navigate(["/"]);
-  }
 }
 

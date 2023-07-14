@@ -1,0 +1,23 @@
+<form (submit)="handleFormEdit()" class="edit-form fade-in-left">
+	<h2>Editar Registro</h2>
+	<input type="text" name="name" id="" placeholder="Nome*" [(ngModel)]="influencer.name" *ngIf="influencer">
+
+	<input type="text" name="email" placeholder="E-mail" [(ngModel)]="influencer.email" *ngIf="influencer">
+
+	<input type="number" name="age" placeholder="Idade" [(ngModel)]="influencer.age" *ngIf="influencer">
+
+	<input type="number" name="subscribers" placeholder="Nº Inscritos*" [(ngModel)]="influencer.subscribers"
+		*ngIf="influencer">
+
+	<input type="text" name="at_channel" placeholder="@ canal*" [(ngModel)]="influencer.at_channel" *ngIf="influencer">
+
+	<input type="text" name="platform" placeholder="Plataforma*" [(ngModel)]="influencer.platform" *ngIf="influencer">
+
+	<select name="category" id="" [(ngModel)]="selectedCategory">
+		<option value="">Categorias</option>
+		<option *ngFor="let category of categories" value={{category.category}}>
+			{{category.category}}
+		</option>
+	</select>
+	<button class="edit-button">ATUALIZAR</button>
+</form>

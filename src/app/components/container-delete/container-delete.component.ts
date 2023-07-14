@@ -14,7 +14,7 @@ export class ContainerDeleteComponent implements OnInit {
 
   token: string | null = "";
 
-  nameInfluencer?: Influencer;
+  influencer?: Influencer;
 
   ngOnInit(): void {
     this.token = getItem("token");
@@ -32,7 +32,7 @@ export class ContainerDeleteComponent implements OnInit {
         }
       });
 
-      this.nameInfluencer = response.data;
+      this.influencer = response.data;
     } catch (error: any) {
       console.log(error.response.data);
     }

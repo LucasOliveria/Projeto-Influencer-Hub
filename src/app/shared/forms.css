@@ -45,7 +45,8 @@ input::placeholder {
   font-family: 'Roboto';
 }
 
-.login-button {
+.login-button,
+.edit-button {
   all: unset;
   height: 48px;
   width: 120px;
@@ -57,7 +58,8 @@ input::placeholder {
   cursor: pointer;
 }
 
-.login-button:hover {
+.login-button:hover,
+.edit-button:hover {
   background-color: #1A4DD8;
 }
 

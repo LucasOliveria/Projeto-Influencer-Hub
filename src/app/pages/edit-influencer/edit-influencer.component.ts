@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Influencer, User } from 'src/interfaces/interfaces';
+import { User } from 'src/interfaces/interfaces';
 import api from 'src/service/api';
 import { getItem, removeItem } from 'src/utils/storage';
 
@@ -16,18 +16,17 @@ export class EditInfluencerComponent {
 
   user?: User
 
-  influencers?: Influencer[];
+  currentPage: string = "edit-influencer";
 
   ngOnInit(): void {
     this.token = getItem("token");
 
     if (!this.token) {
       this.router.navigate(["/"]);
-      return
+      return;
     }
 
     this.getUser();
-    this.getInfluencers();
   }
 
   async getUser(): Promise<void> {
@@ -44,19 +43,19 @@ export class EditInfluencerComponent {
     }
   }
 
-  async getInfluencers(): Promise<void> {
-    try {
-      const response = await api.get("/influencers", {
-        headers: {
-          Authorization: `Bearer ${this.token}`
-        }
-      });
+  // async getInfluencers(): Promise<void> {
+  //   try {
+  //     const response = await api.get("/influencers", {
+  //       headers: {
+  //         Authorization: `Bearer ${this.token}`
+  //       }
+  //     });
 
-      this.influencers = response.data;
-    } catch (error: any) {
-      console.log(error.response.data);
-    }
-  }
+  //     this.influencers = response.data;
+  //   } catch (error: any) {
+  //     console.log(error.response.data);
+  //   }
+  // }
 
   handleLogout() {
     removeItem("token");
