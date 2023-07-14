@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categories, Influencer } from 'src/interfaces/interfaces';
 import api from 'src/service/api';
 import { getItem } from 'src/utils/storage';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-form-add-influencer',
   templateUrl: './form-add-influencer.component.html',
   styleUrls: ['./form-add-influencer.component.css', '../../shared/forms.css']
 })
-export class FormAddInfluencerComponent {
-  constructor(private router: Router) { }
+export class FormAddInfluencerComponent implements OnInit {
+  constructor(private router: Router, private toastr: ToastrService) { }
 
   token: string | null = "";
 
@@ -38,6 +39,8 @@ export class FormAddInfluencerComponent {
 
   selectedCategory: string = "";
 
+  waiting: any;
+
   ngOnInit(): void {
     this.token = getItem("token");
 
@@ -54,15 +57,17 @@ export class FormAddInfluencerComponent {
 
       this.categories = response.data;
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
     }
   }
 
   async handleFormAdd(): Promise<void> {
     const id_category = this.categories?.find((category) => category.category === this.selectedCategory);
 
+    this.waiting = this.toastr.info("Processando...", "Por favor aguarde", { timeOut: 0 });
+
     try {
-      const response = await api.post("/influencers", {
+      await api.post("/influencers", {
         ...this.influencer,
         id_category: id_category?.id
       },
@@ -72,11 +77,15 @@ export class FormAddInfluencerComponent {
           }
         });
 
-      console.log("Influencer cadastrado com sucesso!");
+      this.toastr.success("Influencer cadastrado com sucesso!");
+
+      this.toastr.clear(this.waiting.toastId);
 
       this.router.navigate(["/home"]);
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
+
+      this.toastr.clear(this.waiting.toastId);
     }
   }
 }

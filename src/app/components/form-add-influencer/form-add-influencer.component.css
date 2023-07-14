@@ -1,12 +1,12 @@
-.edit-form {
+.add-form {
   gap: 15px;
 }
 
-.edit-form h2 {
+.add-form h2 {
   margin-bottom: 25px;
 }
 
-.edit-form select {
+.add-form select {
   width: 100%;
   height: 50px;
   padding-left: 10px;
@@ -18,6 +18,6 @@
   background-color: #EDF0FC;
 }
 
-.edit-form .edit-button {
+.add-form .add-button {
   margin: 0;
 }

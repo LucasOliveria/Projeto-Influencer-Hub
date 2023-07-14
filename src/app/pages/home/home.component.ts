@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categories, Influencer, User } from 'src/interfaces/interfaces';
 import api from 'src/service/api';
-import { getItem, removeItem } from 'src/utils/storage';
+import { getItem } from 'src/utils/storage';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { getItem, removeItem } from 'src/utils/storage';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastr: ToastrService) { }
 
   token: string | null = "";
 
@@ -49,7 +50,7 @@ export class HomeComponent implements OnInit {
 
       this.user = response.data;
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
     }
   }
 
@@ -63,7 +64,7 @@ export class HomeComponent implements OnInit {
 
       this.influencers = response.data;
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
     }
   }
 
@@ -77,15 +78,13 @@ export class HomeComponent implements OnInit {
 
       this.categories = response.data;
     } catch (error: any) {
-      console.log(error.response.data);
-
+      this.toastr.error(error.response.data);
     }
   }
 
   get filteredInfluencers(): Influencer[] {
     if (this.influencers && this.search.trim() === '' && this.searchCategory === '') {
       return this.influencers;
-
     }
 
     if (this.influencers && this.search) {

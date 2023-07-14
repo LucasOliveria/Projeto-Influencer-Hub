@@ -22,7 +22,9 @@ export class FormSignUpComponent {
       password: "",
       authorized: true
     }
+
   show: boolean = false;
+
   exitForm: boolean = false
 
   showPassword(): void {
@@ -34,17 +36,17 @@ export class FormSignUpComponent {
   async handleFormSignUp(): Promise<void> {
     if (this.formSignUp.name === "") {
       this.toastr.info("O campo Nome é obrigatório");
-      return
+      return;
     }
 
     if (this.formSignUp.email === "") {
       this.toastr.info("O campo E-mail é obrigatório");
-      return
+      return;
     }
 
     if (this.formSignUp.password === "") {
       this.toastr.info("O campo Senha é obrigatório");
-      return
+      return;
     }
 
     this.waiting = this.toastr.info("Processando...", "Por favor aguarde", { timeOut: 0 });

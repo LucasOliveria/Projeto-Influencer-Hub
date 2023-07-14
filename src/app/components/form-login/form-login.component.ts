@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import api from 'src/service/api';
-import { setItem } from 'src/utils/storage';
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
+import api from 'src/service/api';
+import { setItem } from 'src/utils/storage';
 
 @Component({
   selector: 'app-form-login',

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Influencer } from 'src/interfaces/interfaces';
 import api from 'src/service/api';
 import { getItem } from 'src/utils/storage';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-container-delete',
@@ -10,11 +11,13 @@ import { getItem } from 'src/utils/storage';
   styleUrls: ['./container-delete.component.css']
 })
 export class ContainerDeleteComponent implements OnInit {
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private toastr: ToastrService) { }
 
   token: string | null = "";
 
   influencer?: Influencer;
+
+  waiting: any;
 
   ngOnInit(): void {
     this.token = getItem("token");
@@ -34,12 +37,14 @@ export class ContainerDeleteComponent implements OnInit {
 
       this.influencer = response.data;
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
     }
   }
 
   async deleteInfluencer(): Promise<void> {
     const idInfluencer = this.route.snapshot.paramMap.get("id");
+
+    this.waiting = this.toastr.info("Processando...", "Por favor aguarde", { timeOut: 0 });
 
     try {
       const response = await api.delete(`/influencers/${idInfluencer}`, {
@@ -48,12 +53,15 @@ export class ContainerDeleteComponent implements OnInit {
         }
       });
 
-      console.log(response.data);
+      this.toastr.success(response.data);
+
+      this.toastr.clear(this.waiting.toastId);
 
       this.handleGoToHome();
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
 
+      this.toastr.clear(this.waiting.toastId);
     }
   }
 

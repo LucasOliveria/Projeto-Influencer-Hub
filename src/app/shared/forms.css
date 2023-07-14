@@ -46,7 +46,8 @@ input::placeholder {
 }
 
 .login-button,
-.edit-button {
+.edit-button,
+.add-button {
   all: unset;
   height: 48px;
   width: 120px;
@@ -59,7 +60,8 @@ input::placeholder {
 }
 
 .login-button:hover,
-.edit-button:hover {
+.edit-button:hover,
+.add-button:hover {
   background-color: #1A4DD8;
 }
 
