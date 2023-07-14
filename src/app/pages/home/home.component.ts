@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
 
   categories?: Categories[];
 
+  searchCategory: string = "";
+
   ngOnInit(): void {
     this.token = getItem("token");
 
@@ -31,6 +33,7 @@ export class HomeComponent implements OnInit {
 
     this.getUser();
     this.getInfluencers();
+    this.getCategories();
   }
 
   async getUser(): Promise<void> {
@@ -61,20 +64,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  get filteredInfluencers(): Influencer[] {
-    if (this.influencers && this.search.trim() === '') {
-      return this.influencers;
-    }
-
-    if (this.influencers) {
-      return this.influencers.filter(influencer =>
-        influencer.name.toLowerCase().includes(this.search.toLowerCase()) || influencer.platform.toLowerCase().includes(this.search.toLowerCase()) || influencer.category.toLowerCase().includes(this.search.toLowerCase())
-      )
-    }
-
-    return [];
-  }
-
   async getCategories(): Promise<void> {
     try {
       const response = await api.get("/categories", {
@@ -83,12 +72,38 @@ export class HomeComponent implements OnInit {
         }
       });
 
-
-
+      this.categories = response.data;
+      console.log(response.data);
     } catch (error: any) {
       console.log(error.response.data);
 
     }
+  }
+
+  get filteredInfluencers(): Influencer[] {
+    if (this.influencers && this.search.trim() === '') {
+      return this.influencers;
+    }
+
+    if (this.influencers && this.search) {
+      return this.influencers.filter(influencer =>
+        influencer.name.toLowerCase().includes(this.search.toLowerCase()) || influencer.platform.toLowerCase().includes(this.search.toLowerCase()) || influencer.category.toLowerCase().includes(this.search.toLowerCase())
+      )
+    }
+
+    if (this.influencers && this.searchCategory === '') {
+      console.log("aqui");
+      return this.influencers;
+    }
+
+    if (this.influencers && this.searchCategory) {
+      return this.influencers.filter(influencer =>
+        influencer.category === this.searchCategory
+      )
+
+    }
+
+    return [];
   }
 
   handleLogout() {

@@ -30,15 +30,17 @@
 
       <div class="content-filter">
         <input [(ngModel)]="search" type="text" placeholder="Buscar influencer..." autofocus>
+
         <div class="category-filter">
-          <select name="category" id="">
-            <option value="">Categorias</option>
-            <option value="Games">Games</option>
-            <option value="outros ">Outros</option>
+          <select name="category" [(ngModel)]="searchCategory">
+            <option value="">Categoria</option>
+            <option *ngFor="let category of categories" value={{category.category}}>
+              {{category.category}}
+            </option>
           </select>
         </div>
       </div>
-
+      {{searchCategory}}
       <div class="content-table">
         <app-table-influencers [token]="token" [user]="user" [influencers]="influencers"
           [filteredInfluencers]="filteredInfluencers"></app-table-influencers>
