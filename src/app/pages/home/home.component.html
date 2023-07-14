@@ -11,9 +11,10 @@
             <img src="../../../assets/home-blue.svg" alt="home">
             <p>Home</p>
           </li>
-          <li class="selecting">
+          <li *ngIf="user?.authorized" class="selecting">
             <img src="../../../assets/more-blue.svg" alt="add">
             <p>Adicionar influencer</p>
+
           </li>
         </ul>
       </nav>
@@ -28,11 +29,19 @@
     <div class="container-table-filter">
 
       <div class="content-filter">
-        <input autofocus type="text" placeholder="Buscar influencer...">
+        <input [(ngModel)]="search" type="text" placeholder="Buscar influencer..." autofocus>
+        <div class="category-filter">
+          <select name="category" id="">
+            <option value="">Categorias</option>
+            <option value="Games">Games</option>
+            <option value="outros ">Outros</option>
+          </select>
+        </div>
       </div>
 
       <div class="content-table">
-        <app-table-influencers [token]="token"></app-table-influencers>
+        <app-table-influencers [token]="token" [user]="user" [influencers]="influencers"
+          [filteredInfluencers]="filteredInfluencers"></app-table-influencers>
       </div>
 
     </div>

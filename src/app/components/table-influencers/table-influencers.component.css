@@ -38,6 +38,7 @@ tbody tr td:first-child {
 
 tbody tr td:last-child {
   padding-right: 15px;
+  padding-left: 25px;
 }
 
 img[alt="trash"],

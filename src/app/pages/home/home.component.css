@@ -51,7 +51,6 @@ img[alt="user-icon"] {
   text-overflow: ellipsis;
 }
 
-
 .menu,
 .container-logout {
   width: 100%;
@@ -105,6 +104,8 @@ img[alt="user-icon"] {
 }
 
 .content-filter {
+  display: flex;
+  gap: 15px;
   align-self: flex-start;
 }
 
@@ -117,11 +118,12 @@ img[alt="user-icon"] {
   margin-bottom: 30px;
   font-weight: 700;
   font-size: 1.7rem;
-  color: #000000;
+  color: #ffffff;
   background-color: #a1b2f8e5;
 }
 
 .content-filter input,
+select,
 .content-table {
   box-shadow: 0px 10px 10px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -130,6 +132,18 @@ img[alt="user-icon"] {
   color: #ffffff;
   font-weight: 700;
   font-size: 1.4rem;
+}
+
+select {
+  border: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+  height: 48px;
+  border-radius: 15px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  color: #ffffff;
+  background-color: #a1b2f8e5;
 }
 
 .content-table {

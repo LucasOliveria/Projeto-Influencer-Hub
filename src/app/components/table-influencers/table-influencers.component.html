@@ -6,14 +6,14 @@
       <th>Idade</th>
       <th>Nº de inscritos</th>
       <th>@ Canal</th>
-      <th>Plataform</th>
+      <th>Plataforma</th>
       <th>Categoria</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let influencer of influencers">
+    <tr *ngFor="let influencer of filteredInfluencers">
       <td>{{influencer?.name}}</td>
       <td>{{influencer?.email}}</td>
       <td>{{influencer?.age}}</td>
@@ -21,10 +21,10 @@
       <td>{{influencer?.at_channel}}</td>
       <td>{{influencer?.platform}}</td>
       <td>{{influencer?.category}}</td>
-      <td>
+      <td *ngIf="user?.authorized">
         <img src="../../../assets/pencil.png" alt="pencil" (click)="handleGoToEditInfluencer(influencer?.id)">
       </td>
-      <td>
+      <td *ngIf="user?.authorized">
         <img src="../../../assets/trash.png" alt="trash">
       </td>
     </tr>
