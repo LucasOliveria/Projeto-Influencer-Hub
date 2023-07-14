@@ -29,6 +29,8 @@ export class FormSignUpComponent {
     this.show = !this.show;
   }
 
+  waiting: any;
+
   async handleFormSignUp(): Promise<void> {
     if (this.formSignUp.name === "") {
       this.toastr.info("O campo Nome é obrigatório");
@@ -45,6 +47,8 @@ export class FormSignUpComponent {
       return
     }
 
+    this.waiting = this.toastr.info("Processando...", "Por favor aguarde", { timeOut: 0 });
+
     try {
       const response = await api.post("/user", {
         name: this.formSignUp.name,
@@ -55,6 +59,8 @@ export class FormSignUpComponent {
 
       this.toastr.success(response.data);
 
+      this.toastr.clear(this.waiting.toastId);
+
       this.exitForm = true;
 
       setTimeout(() => {
@@ -62,6 +68,8 @@ export class FormSignUpComponent {
       }, 570);
     } catch (error: any) {
       this.toastr.error(error.response.data);
+
+      this.toastr.clear(this.waiting.toastId);
     }
   }
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import api from 'src/service/api';
 import { setItem } from 'src/utils/storage';
 import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-form-login',
@@ -9,7 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./form-login.component.css', '../../shared/forms.css']
 })
 export class FormLoginComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastr: ToastrService) { }
 
   formLogin: { email: string, password: string } = {
     email: "",
@@ -22,14 +23,20 @@ export class FormLoginComponent {
     this.show = !this.show;
   }
 
+  waiting: any;
+
   async handleFormLogin(): Promise<void> {
     if (this.formLogin.email === "") {
-      return console.log("E-mail obrigatório");
+      this.toastr.info("E-mail obrigatório");
+      return;
     }
 
     if (this.formLogin.password === "") {
-      return console.log("Senha obrigatória");
+      this.toastr.info("Senha obrigatória");
+      return;
     }
+
+    this.waiting = this.toastr.info("Processando...", "Por favor aguarde", { timeOut: 0 });
 
     try {
       const response = await api.post("/login", {
@@ -39,7 +46,9 @@ export class FormLoginComponent {
 
       setItem("token", response.data.token);
 
-      console.log(`Bem-vindo(a) ${response.data.usuario.name}`);
+      this.toastr.success(`Bem-vindo(a) ${response.data.usuario.name}`);
+
+      this.toastr.clear(this.waiting.toastId);
 
       this.exitForm = true;
 
@@ -47,7 +56,9 @@ export class FormLoginComponent {
         this.router.navigate(["/home"]);
       }, 570);
     } catch (error: any) {
-      console.log(error.response.data);
+      this.toastr.error(error.response.data);
+
+      this.toastr.clear(this.waiting.toastId);
     }
   }
 

@@ -7,7 +7,7 @@ import { Influencer, User } from 'src/interfaces/interfaces';
   templateUrl: './table-influencers.component.html',
   styleUrls: ['./table-influencers.component.css']
 })
-export class TableInfluencersComponent implements OnInit {
+export class TableInfluencersComponent {
   constructor(private router: Router) { }
 
   @Input() token: string | null = "";
@@ -17,10 +17,6 @@ export class TableInfluencersComponent implements OnInit {
   @Input() influencers?: Influencer[];
 
   @Input() filteredInfluencers?: Influencer[];
-
-  ngOnInit(): void {
-
-  }
 
   async handleGoToEditInfluencer(id?: number): Promise<void> {
     this.router.navigate([`edit-influencer/${id}`]);
