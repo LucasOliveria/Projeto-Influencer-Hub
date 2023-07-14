@@ -81,26 +81,25 @@ export class HomeComponent implements OnInit {
   }
 
   get filteredInfluencers(): Influencer[] {
-    if (this.influencers && this.search.trim() === '') {
+    if (this.influencers && this.search.trim() === '' && this.searchCategory === '') {
       return this.influencers;
+
     }
 
     if (this.influencers && this.search) {
-      return this.influencers.filter(influencer =>
-        influencer.name.toLowerCase().includes(this.search.toLowerCase()) || influencer.platform.toLowerCase().includes(this.search.toLowerCase()) || influencer.category.toLowerCase().includes(this.search.toLowerCase())
-      )
-    }
+      const influencers = this.influencers.filter(influencer =>
+        influencer.name.toLowerCase().includes(this.search.toLowerCase()) || influencer.platform.toLowerCase().includes(this.search.toLowerCase())
+      );
 
-    if (this.influencers && this.searchCategory === '') {
-      console.log("aqui");
-      return this.influencers;
+      return influencers;
     }
 
     if (this.influencers && this.searchCategory) {
-      return this.influencers.filter(influencer =>
+      const influencers = this.influencers.filter(influencer =>
         influencer.category === this.searchCategory
-      )
+      );
 
+      return influencers;
     }
 
     return [];
