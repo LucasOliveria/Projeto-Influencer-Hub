@@ -100,12 +100,15 @@ img[alt="user-icon"] {
     width: 25px;
   }
 
+  .menu-modal {
+    position: absolute;
+    z-index: 2;
+  }
+
   .menu-modal .content-lateral-bar {
     display: flex;
-    position: absolute;
     width: 240px;
     height: 100%;
-    z-index: 2;
   }
 
   .menu ul li,

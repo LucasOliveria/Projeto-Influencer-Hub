@@ -1,4 +1,4 @@
-<div [ngClass]="openMenu ? 'menu-modal' : ''">
+<div [ngClass]="openMenu ? 'menu-modal slide-in-left' : ''">
   <img (click)="handleOpenMenu()" *ngIf="!openMenu" src="../../../assets/menu.svg" alt="menu">
 
   <img (click)="handleOpenMenu()" *ngIf=" openMenu" src="../../../assets/cross.svg" alt="cross">
