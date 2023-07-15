@@ -5,7 +5,7 @@ import { getItem } from 'src/utils/storage';
 @Component({
   selector: 'app-delete-influencer',
   templateUrl: './delete-influencer.component.html',
-  styleUrls: ['./delete-influencer.component.css']
+  styleUrls: ['../../shared/generic-main.css']
 })
 export class DeleteInfluencerComponent implements OnInit {
   constructor(private router: Router) { }

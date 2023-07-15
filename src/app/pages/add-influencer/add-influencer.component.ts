@@ -8,7 +8,7 @@ import { getItem, removeItem } from 'src/utils/storage';
 @Component({
   selector: 'app-add-influencer',
   templateUrl: './add-influencer.component.html',
-  styleUrls: ['./add-influencer.component.css']
+  styleUrls: ['../../shared/generic-main.css']
 })
 export class AddInfluencerComponent implements OnInit {
   constructor(private router: Router, private toastr: ToastrService) { }

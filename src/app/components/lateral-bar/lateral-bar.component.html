@@ -1,6 +1,5 @@
 <div [ngClass]="openMenu ? 'menu-modal slide-in-left' : ''">
   <img (click)="handleOpenMenu()" *ngIf="!openMenu" src="../../../assets/menu.svg" alt="menu">
-
   <img (click)="handleOpenMenu()" *ngIf=" openMenu" src="../../../assets/cross.svg" alt="cross">
   <div class="content-lateral-bar">
     <div class="lateral-bar">
@@ -20,7 +19,6 @@
             <img src="../../../assets/more-blue.svg" alt="add">
             <p>Adicionar influencer</p>
           </li>
-
         </ul>
       </nav>
     </div>

@@ -1,56 +1,56 @@
 .container-modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: #000000a4;
-    position: absolute;
-    z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #000000a4;
+  position: absolute;
+  z-index: 1;
 }
 
 .container-question {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 350px;
-    height: 200px;
-    padding: 25px 20px 40px 20px;
-    text-align: center;
-    font-size: 1.8rem;
-    background-color: #f7fafc;
-    border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  height: 200px;
+  padding: 25px 20px 40px 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  background-color: #f7fafc;
+  border-radius: 15px;
 }
 
 .container-question span {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .buttons {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .buttons button {
-    all: unset;
-    height: 48px;
-    width: 120px;
-    border-radius: 25px;
-    text-align: center;
-    color: #F7FAFC;
-    background-color: #2861fd;
-    cursor: pointer;
+  all: unset;
+  height: 48px;
+  width: 120px;
+  border-radius: 25px;
+  text-align: center;
+  color: #F7FAFC;
+  background-color: #2861fd;
+  cursor: pointer;
 }
 
 .buttons button:last-of-type {
-    background-color: #fd2828;
+  background-color: #fd2828;
 }
 
 .buttons button:first-of-type:hover {
-    background-color: #1A4DD8;
+  background-color: #1A4DD8;
 }
 
 .buttons button:last-of-type:hover {
-    background-color: #d81a1a;
+  background-color: #d81a1a;
 }

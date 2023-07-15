@@ -8,7 +8,7 @@ import { getItem } from 'src/utils/storage';
 @Component({
   selector: 'app-form-edit-influencer',
   templateUrl: './form-edit-influencer.component.html',
-  styleUrls: ['./form-edit-influencer.component.css', '../../shared/forms.css']
+  styleUrls: ['../../shared/forms.css']
 })
 export class FormEditInfluencerComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private toastr: ToastrService) { }

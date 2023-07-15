@@ -8,7 +8,7 @@ import { ToastrService } from "ngx-toastr";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css', '../../shared/generic-main.css']
 })
 export class HomeComponent implements OnInit {
   constructor(private router: Router, private toastr: ToastrService) { }
