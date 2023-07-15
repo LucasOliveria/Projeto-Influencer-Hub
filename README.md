@@ -32,12 +32,14 @@ As rotas de cadastro, edição e exclusão de influencers são protegidas por au
 
 O repositório contendo os códigos da API desenvolvida para esse projeto assim como sua documentação pode ser acessada clicando <a href="https://github.com/LucasOliveria/Api-Projeto-Influencer-Hub" target="_blank">AQUI</a>.
 
+<h2 style="font-family: sans-serif;">Link da aplicação:</h2>
+
 <h2 style="font-family: sans-serif;">Linguagens, bibliotecas e frameworks utilizados:</h2>
 
-<h2 style="font-family: sans-serif;">Link da aplicação:</h2>
 
 <ul>
     <li>Angular.js</li>
+    <li>TypeScript</li>
     <li>HTML</li>
     <li>CSS</li>
     <li>ngx-toastr</li>
