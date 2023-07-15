@@ -20,11 +20,8 @@ main {
 
 @media (max-width: 915px) {
   .conteiner-form-edit-influencer {
-    display: flex;
-    justify-content: center;
     align-items: center;
     width: 100vw;
-    min-height: 100%;
     padding: 30px 0;
   }
 

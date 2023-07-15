@@ -17,3 +17,12 @@ main {
   min-height: 100%;
   padding: 50px 0;
 }
+
+@media (max-width: 915px) {
+  .conteiner-form-add-influencer {
+    align-items: center;
+    width: 100vw;
+    padding: 30px 0;
+  }
+
+}
