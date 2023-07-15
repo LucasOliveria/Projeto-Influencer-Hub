@@ -101,7 +101,7 @@ img[alt="user-icon"] {
   .menu-modal .content-lateral-bar {
     display: flex;
     width: 240px;
-    min-height: 400px;
+    min-height: 500px;
     border-bottom-right-radius: 25px;
   }
 
