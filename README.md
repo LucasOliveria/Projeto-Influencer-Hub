@@ -34,6 +34,8 @@ O repositório contendo os códigos da API desenvolvida para esse projeto assim 
 
 <h2 style="font-family: sans-serif;">Link da aplicação:</h2>
 
+O site da aplicação pode ser acessaro por esse link:<a href="https://influencer-hub-olivr.netlify.app/" target="_blank">https://influencer-hub-olivr.netlify.app/</a> 
+
 <h2 style="font-family: sans-serif;">Linguagens, bibliotecas e frameworks utilizados:</h2>
 
 <ul>
@@ -70,3 +72,4 @@ O repositório contendo os códigos da API desenvolvida para esse projeto assim 
 
 <a href="http://www.linkedin.com/in/lucas-de-oliveira-5b8a5532" target="_blank">LinkedIn</a>
 <br>
+<a href="https://influencer-hub-olivr.netlify.app/" target="_blank">Site</a> 
