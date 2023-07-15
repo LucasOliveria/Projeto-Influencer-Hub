@@ -59,7 +59,7 @@ O site da aplicação pode ser acessaro por esse link:<a href="https://influence
 <br/>
 <img src="./src/images/Editar-influencer.png" alt="">
 <br/>
-<img src="./src/images/Layout-mobile.png" alt="">
+<img src="./src/images/Layout-mobile-1.png" alt="">
 <br/>
 <img src="./src/images/Layout-mobile-2.png" alt="">
 <br/>
