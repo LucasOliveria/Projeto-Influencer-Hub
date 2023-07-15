@@ -74,3 +74,29 @@ span {
   color: #2861fd;
   cursor: pointer;
 }
+
+@media (max-width: 915px) {
+  form {
+    width: 350px;
+    padding: 15px 15px;
+  }
+
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  form input {
+    height: 40px;
+  }
+
+  img[alt="close-eye"],
+  img[alt="open-eye"] {
+    width: 18px;
+  }
+
+  .login-button,
+  .edit-button,
+  .add-button {
+    height: 35px;
+  }
+}

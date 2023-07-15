@@ -23,3 +23,23 @@ form input[type="radio"] {
   width: 15px;
   height: 15px;
 }
+
+@media (max-width: 915px) {
+  input[type="email"] {
+    margin-top: 5px;
+  }
+
+  .container-password {
+    margin: 5px 0;
+  }
+
+  .container-radio {
+    margin-bottom: 5px;
+  }
+
+
+  form input[type="radio"] {
+    width: 10px;
+    height: 10px;
+  }
+}

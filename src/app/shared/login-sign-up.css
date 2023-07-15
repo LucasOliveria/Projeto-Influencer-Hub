@@ -15,6 +15,18 @@
 }
 
 img[alt="social-media-bubbles"] {
-  width: 490px;
+  width: 450px;
   position: absolute;
+}
+
+@media (max-width: 915px) {
+
+  .main-login,
+  .main-sign-up {
+    background-image: none;
+  }
+
+  img[alt="social-media-bubbles"] {
+    width: 280px;
+  }
 }

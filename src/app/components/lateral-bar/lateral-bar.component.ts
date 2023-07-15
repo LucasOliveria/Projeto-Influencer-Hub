@@ -15,6 +15,12 @@ export class LateralBarComponent {
 
   @Input() currentPage: string = "";
 
+  openMenu: boolean = false;
+
+  handleOpenMenu() {
+    this.openMenu = !this.openMenu
+  }
+
   handleGoHome() {
     this.router.navigate(["/home"]);
   }

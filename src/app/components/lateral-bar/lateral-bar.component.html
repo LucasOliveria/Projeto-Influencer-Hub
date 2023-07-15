@@ -1,27 +1,32 @@
-<div class="content-lateral-bar">
-  <div class="lateral-bar">
-    <div class="line">
-      <img src="../../../assets/user-icon.svg" alt="user-icon">
-      <h2 title={{user?.name}}>Olá, {{user?.name}}!</h2>
+<div [ngClass]="openMenu ? 'menu-modal' : ''">
+  <img (click)="handleOpenMenu()" *ngIf="!openMenu" src="../../../assets/menu.svg" alt="menu">
+
+  <img (click)="handleOpenMenu()" *ngIf=" openMenu" src="../../../assets/cross.svg" alt="cross">
+  <div class="content-lateral-bar">
+    <div class="lateral-bar">
+      <div class="line">
+        <img src="../../../assets/user-icon.svg" alt="user-icon">
+        <h2 title={{user?.name}}>Olá, {{user?.name}}!</h2>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li [ngClass]="currentPage === 'home' ? 'current-page' : 'selecting'" (click)="handleGoHome()">
+            <img src="../../../assets/home-blue.svg" alt="home">
+            <p>Home</p>
+          </li>
+
+          <li [ngClass]="currentPage === 'add' ? 'current-page' : 'selecting'" *ngIf="user?.authorized"
+            (click)="handleGoAddInfluencer()">
+            <img src="../../../assets/more-blue.svg" alt="add">
+            <p>Adicionar influencer</p>
+          </li>
+
+        </ul>
+      </nav>
     </div>
-    <nav class="menu">
-      <ul>
-        <li [ngClass]="currentPage === 'home' ? 'current-page' : 'selecting'" (click)="handleGoHome()">
-          <img src="../../../assets/home-blue.svg" alt="home">
-          <p>Home</p>
-        </li>
-
-        <li [ngClass]="currentPage === 'add' ? 'current-page' : 'selecting'" *ngIf="user?.authorized"
-          (click)="handleGoAddInfluencer()">
-          <img src="../../../assets/more-blue.svg" alt="add">
-          <p>Adicionar influencer</p>
-        </li>
-
-      </ul>
-    </nav>
-  </div>
-  <div class="container-logout selecting" (click)="handleLogout()">
-    <img src="../../../assets/logout.png" alt="logout">
-    <p>Logout</p>
+    <div class="container-logout selecting" (click)="handleLogout()">
+      <img src="../../../assets/logout.png" alt="logout">
+      <p>Logout</p>
+    </div>
   </div>
 </div>

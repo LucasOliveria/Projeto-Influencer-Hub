@@ -41,10 +41,19 @@ main {
   border-radius: 15px;
   padding-left: 10px;
   margin-bottom: 30px;
-  font-weight: 700;
   font-size: 1.7rem;
-  color: #ffffff;
+}
+
+.content-filter input,
+select {
   background-color: #a1b2f8e5;
+}
+
+.content-filter input,
+.content-filter input::placeholder,
+select {
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .content-filter input,
@@ -54,25 +63,47 @@ select,
 }
 
 .content-filter input::placeholder {
-  color: #ffffff;
-  font-weight: 700;
   font-size: 1.4rem;
 }
 
 select {
   border: none;
-  font-weight: 700;
   font-size: 1.4rem;
   height: 48px;
   border-radius: 15px;
   padding-left: 10px;
   margin-bottom: 30px;
-  color: #ffffff;
-  background-color: #a1b2f8e5;
 }
 
 .content-table {
   max-width: 980px;
   border-radius: 15px;
   overflow: auto;
+}
+
+@media (max-width: 915px) {
+  main {
+    max-width: 100vw;
+    min-height: 100vh;
+    background-image: url("../../../assets/logo.svg");
+  }
+
+  .container-table {
+    width: 100vw;
+  }
+
+  .content-filter {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .content-filter input {
+    height: 40px;
+    margin-bottom: 0;
+  }
+
+  select {
+    height: 40px;
+    margin-bottom: 25px;
+  }
 }
