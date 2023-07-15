@@ -63,6 +63,7 @@ O site da aplicação pode ser acessaro por esse link:<a href="https://influence
 <br/>
 <img src="./src/images/Layout-mobile-2.png" alt="">
 <br/>
+<img src="./src/images/Layout-mobile-3.png" alt="">
 
 <h2 style="font-family: sans-serif;">Autor</h2>
 
