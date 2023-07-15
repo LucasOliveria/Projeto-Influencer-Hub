@@ -36,7 +36,6 @@ O repositório contendo os códigos da API desenvolvida para esse projeto assim 
 
 <h2 style="font-family: sans-serif;">Linguagens, bibliotecas e frameworks utilizados:</h2>
 
-
 <ul>
     <li>Angular.js</li>
     <li>TypeScript</li>
@@ -48,7 +47,7 @@ O repositório contendo os códigos da API desenvolvida para esse projeto assim 
 
 <h2 style="font-family: sans-serif;">Layout:</h2>
 
-<img src="./src/images/login.png" alt="">
+<img src="./src/images/Login.png" alt="">
 <br/>
 <img src="./src/images/Cadastro-de-usuário.png" alt="">
 <br/>
