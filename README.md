@@ -71,7 +71,6 @@ O site da aplicação pode ser acessaro por esse link:<a href="https://influence
 
 <h2 style="font-family: sans-serif;">Links</h2>
 
-<a href="http://www.linkedin.com/in/lucas-de-oliveira-5b8a5532" target="_blank">LinkedIn</a>
 <a href="https://www.linkedin.com/in/lucas-oliveira-5b8a5532/" target="_blank">LinkedIn</a>
 <br>
 <a href="https://influencer-hub-olivr.netlify.app/" target="_blank">Site</a> 
