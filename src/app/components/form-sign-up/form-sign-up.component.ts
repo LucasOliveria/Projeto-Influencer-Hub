@@ -69,7 +69,12 @@ export class FormSignUpComponent {
         this.router.navigate(["/"]);
       }, 570);
     } catch (error: any) {
-      this.toastr.error(error.response.data);
+      if (error) {
+        this.toastr.error(error.response.data);
+        this.toastr.clear(this.waiting.toastId);
+        return
+      }
+      this.toastr.error("Banco de dados desativado pelos desenvolvedores");
 
       this.toastr.clear(this.waiting.toastId);
     }
